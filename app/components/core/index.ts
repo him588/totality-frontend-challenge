@@ -7,6 +7,7 @@ import RangeSlider from "./slider";
 import Dropdown from "./dropdown";
 import Searchform from "./searchform";
 import SighupForm from "./sighupForm";
+import Card from "./card";
 export {
   Logo,
   Button,
@@ -17,4 +18,5 @@ export {
   Dropdown,
   Searchform,
   SighupForm,
+  Card,
 };

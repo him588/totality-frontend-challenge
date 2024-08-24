@@ -71,7 +71,7 @@ function SearchBar() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Delhi,India"
+            placeholder="Ex-Delhi"
             className="text-xl outline-none font-semibold text-[#3b3b3b] text-opacity-90 placeholder:text-opacity-90 placeholder:text-[#3b3b3b]"
           />
         </div>

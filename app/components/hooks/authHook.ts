@@ -2,6 +2,8 @@ import { user } from "@/types";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { CurrentUserContext } from "../context";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function useAuth(formDetails: user) {
   const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
@@ -13,21 +15,22 @@ function useAuth(formDetails: user) {
   const router = useRouter();
   function sighup() {
     if (formDetails.name.length < 3) {
-      console.log("name is not less than 3");
+      toast.error("name is not less than 3", {
+        position: "top-center",
+      });
       return;
     }
     if (!emailRegex.test(formDetails.email)) {
-      console.log("Email contains @");
+      toast.error("Email contains @", { position: "top-center" });
       return;
     }
     if (formDetails.password.length < 6) {
-      console.log("password atleast 6 char");
+      toast.error("password atleast 6 char", { position: "top-center" });
       return;
     }
     const isUserExists = users.filter(
       (user) => user.email === formDetails.email
     );
-    console.log(users);
 
     if (isUserExists.length === 0) {
       setUsers((prev) => {
@@ -37,18 +40,21 @@ function useAuth(formDetails: user) {
         setCurrentUser && setCurrentUser(formDetails);
         return allNewUsers;
       });
-      router.push("/home");
+      toast.success("User registered Successfully", { position: "top-center" });
     } else {
-      console.log("Email already exists");
+      toast.error("Email already exists", { position: "top-center" });
+      return;
     }
   }
   function login() {
     if (!emailRegex.test(formDetails.email)) {
-      console.log("Email contains @");
+      toast.error("Email contains @", { position: "top-center" });
+
       return;
     }
     if (formDetails.password.length < 6) {
-      console.log("password atleast 6 char");
+      toast.error("password atleast 6 char", { position: "top-center" });
+
       return;
     }
     const isUserExists = users.filter(
@@ -57,10 +63,10 @@ function useAuth(formDetails: user) {
         user.password === formDetails.password
     );
     if (isUserExists.length === 0) {
-      console.log("Email or Password is incorrect");
+      toast.error("Email or Password is incorrect", { position: "top-center" });
     } else {
       setCurrentUser && setCurrentUser(isUserExists[0]);
-      console.log("login successfull");
+      toast.success("login successfull", { position: "top-center" });
     }
   }
   function logout() {}

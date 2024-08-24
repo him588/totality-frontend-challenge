@@ -6,7 +6,7 @@ function AgentCard() {
   return (
     <>
       {" "}
-      <div className=" flex justify-between items-center">
+      <div className=" relative flex justify-between items-center">
         <p className=" text-lg ">
           201 Prague Dr, <span className=" block">San Jose, CA 95119</span>
         </p>
@@ -32,7 +32,7 @@ function AgentCard() {
           <span className=" font-medium text-gray-400 text-lg">/night</span>
         </p>
       </div>
-      <div className=" bg-[#f8f9fb] min-h-[180px] h-[30%] flex justify-between items-end rounded-lg mt-4 p-4 relative">
+      <div className=" bg-[#f8f9fb] min-h-[180px] h-[30%] flex justify-between items-end rounded-lg mt-24 p-4 relative">
         <div className=" flex flex-col justify-end gap-3">
           <div className=" h-[60px] w-[60px] rounded-full overflow-hidden">
             <Image
@@ -60,9 +60,9 @@ function AgentCard() {
         </div>
         <p className=" absolute top-3 right-5 text-xl text-gray-500">Agent</p>
       </div>
-      <Button className=" bottom-2 h-[60px] text-xl w-full mt-4">
+      {/* <Button className=" bottom-2 h-[60px] text-xl w-full mt-4">
         Book for tour
-      </Button>
+      </Button> */}
     </>
   );
 }

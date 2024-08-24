@@ -1,9 +1,12 @@
 import { SectionOne, SectionThree, SectionTwo } from "./components/pages/slash";
 import Footer from "./components/pages/slash/footer";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   return (
     <div className="min-h-screen w-full bg-white">
+      <ToastContainer />
       <SectionOne />
       <SectionTwo />
       <SectionThree />

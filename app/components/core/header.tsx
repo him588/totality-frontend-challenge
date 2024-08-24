@@ -5,6 +5,7 @@ import Button from "./button";
 import BasicModal from "./modal";
 import SighupForm from "./sighupForm";
 import { CurrentUserContext } from "../context";
+import LoginForm from "./loginFrom";
 
 function Header() {
   const [openSighup, setOpenSighup] = useState(false);
@@ -13,11 +14,14 @@ function Header() {
   return (
     <div className=" px-8 h-[60px] flex items-center justify-between ">
       <BasicModal open={openSighup} setOpen={setOpenSighup}>
-        <SighupForm />
+        <SighupForm setSighup={setOpenSighup} setLogin={setOpenLogin} />
       </BasicModal>
       <BasicModal open={openLogin} setOpen={setOpenLogin}>
-        Login
+        <LoginForm setSighup={setOpenSighup} setLogin={setOpenLogin} />
       </BasicModal>
+      {/* <BasicModal open={openLogin} setOpen={setOpenLogin}>
+        Login
+      </BasicModal> */}
       <div className=" w-[20%]">
         <Logo />
       </div>

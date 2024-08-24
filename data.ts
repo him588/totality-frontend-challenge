@@ -4,10 +4,10 @@ export const Properties: properties[] = [
     id: "2b8c4df1-9c2a-4f7b-8f1b-1f78d5e3c8d7",
     title: "Modern Family Home",
     description: "A spacious and modern home perfect for a growing family.",
-    price: 400000,
+    price: 4000,
     address: {
       street: "123 Pine St",
-      city: "Dallas",
+      city: "Delhi",
       state: "TX",
       country: "USA",
     },
@@ -21,7 +21,7 @@ export const Properties: properties[] = [
     id: "3b8f7c2a-6a1c-4f3d-8c9e-4f8b9c3e7d1a",
     title: "Cozy Urban Apartment",
     description: "A comfortable apartment in the heart of the city.",
-    price: 275000,
+    price: 2750,
     address: {
       street: "789 Elm St",
       city: "San Francisco",
@@ -38,7 +38,7 @@ export const Properties: properties[] = [
     id: "8fdc3b56-7690-46e2-a49f-13fdfcd287f4",
     title: "Urban Loft",
     description: "A chic loft in the city center, close to all amenities.",
-    price: 350000,
+    price: 3500,
     address: {
       street: "456 Central Ave",
       city: "Los Angeles",
@@ -55,7 +55,7 @@ export const Properties: properties[] = [
     id: "fb34d64a-6c78-44e5-9db9-85b2fd0f4a1f",
     title: "Luxury Penthouse",
     description: "A stunning penthouse with panoramic views of the ocean.",
-    price: 900000,
+    price: 9000,
     address: {
       street: "789 Ocean Blvd",
       city: "Miami",
@@ -72,7 +72,7 @@ export const Properties: properties[] = [
     id: "eabc1321-3bf7-492d-8b37-f7cd78bff6cd",
     title: "Downtown Office Space",
     description: "Prime office space located in the heart of downtown.",
-    price: 450000,
+    price: 4500,
     address: {
       street: "123 Business St",
       city: "Chicago",
@@ -89,7 +89,7 @@ export const Properties: properties[] = [
     id: "d12abf09-2398-456f-89f2-3e3449d8c2db",
     title: "Cozy Suburban Home",
     description: "A charming home in a quiet suburban neighborhood.",
-    price: 275000,
+    price: 275,
     address: {
       street: "456 Maple St",
       city: "Austin",
@@ -106,7 +106,7 @@ export const Properties: properties[] = [
     id: "b13de4c8-67f2-4bca-9389-0c7e7f61b4b8",
     title: "Mountain Retreat",
     description: "A serene retreat in the mountains, ideal for nature lovers.",
-    price: 600000,
+    price: 6000,
     address: {
       street: "789 Mountain Rd",
       city: "Aspen",
@@ -123,7 +123,7 @@ export const Properties: properties[] = [
     id: "9d7a6bfe-cd6f-4bb5-8d8b-6b4f6e9e2b3c",
     title: "Beachfront Condo",
     description: "A luxurious condo with direct access to the beach.",
-    price: 750000,
+    price: 7500,
     address: {
       street: "321 Ocean View Dr",
       city: "Santa Monica",
@@ -140,7 +140,7 @@ export const Properties: properties[] = [
     id: "a2c4e8b9-7d1a-4d2f-8e2a-1c3f9b4e6d8f",
     title: "Lakefront Cabin",
     description: "A cozy cabin with stunning lake views and modern amenities.",
-    price: 500000,
+    price: 500,
     address: {
       street: "456 Lake Rd",
       city: "Lake Tahoe",
@@ -158,7 +158,7 @@ export const Properties: properties[] = [
     title: "Country Estate",
     description:
       "A grand estate in the countryside, perfect for large families.",
-    price: 1200000,
+    price: 1200,
     address: {
       street: "123 Country Ln",
       city: "Nashville",
