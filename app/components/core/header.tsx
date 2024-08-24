@@ -1,10 +1,23 @@
-import React from "react";
+"use client";
+import React, { useContext, useState } from "react";
 import Logo from "./logo";
 import Button from "./button";
+import BasicModal from "./modal";
+import SighupForm from "./sighupForm";
+import { CurrentUserContext } from "../context";
 
 function Header() {
+  const [openSighup, setOpenSighup] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+  const currentUser = useContext(CurrentUserContext)?.currentUser;
   return (
     <div className=" px-8 h-[60px] flex items-center justify-between ">
+      <BasicModal open={openSighup} setOpen={setOpenSighup}>
+        <SighupForm />
+      </BasicModal>
+      <BasicModal open={openLogin} setOpen={setOpenLogin}>
+        Login
+      </BasicModal>
       <div className=" w-[20%]">
         <Logo />
       </div>
@@ -23,8 +36,18 @@ function Header() {
         </p>
       </div>
       <div className="w-[20%] flex items-end justify-end gap-2">
-        <Button className=" w-[120px]">Login</Button>
-        <Button className=" w-[120px]">Sigh up</Button>
+        {currentUser ? (
+          ""
+        ) : (
+          <>
+            <Button onClick={() => setOpenLogin(true)} className=" w-[120px]">
+              Login
+            </Button>
+            <Button onClick={() => setOpenSighup(true)} className=" w-[120px]">
+              Sigh up
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

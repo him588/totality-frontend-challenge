@@ -6,6 +6,7 @@ import BasicModal from "./modal";
 import RangeSlider from "./slider";
 import Dropdown from "./dropdown";
 import Searchform from "./searchform";
+import SighupForm from "./sighupForm";
 export {
   Logo,
   Button,
@@ -15,4 +16,5 @@ export {
   RangeSlider,
   Dropdown,
   Searchform,
+  SighupForm,
 };

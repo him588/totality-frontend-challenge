@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect, useContext } from "react";
 import RangeSlider from "./slider";
 import Dropdown from "./dropdown";
 import Button from "./button";
+import { searchCriteriaContext } from "../context";
+import { useRouter } from "next/navigation";
 
 type prop = {
   minValue: number;
@@ -30,15 +33,34 @@ function Searchform({
   roomValue,
   setRoomValue,
 }: prop) {
+  const router = useRouter();
+  const setSearchCriteria = useContext(
+    searchCriteriaContext
+  )?.setSearchCriteria;
   function handleClose() {
     setOpen(false);
+  }
+  function handleSearch() {
+    setOpen(false);
+    if (input === "") {
+      console.log("Please enter Location");
+      return;
+    }
+    setSearchCriteria &&
+      setSearchCriteria({
+        minValue,
+        maxValue,
+        location: input,
+        rooms: roomValue,
+      });
+    router.push(`/properties/${input}`);
   }
   return (
     <div
       onClick={(e) => {
         e.stopPropagation();
       }}
-      className=" h-[75vh] w-[500px] bg-white rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-100 py-2 px-4 "
+      className="  w-[500px] bg-white rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-100 py-2 px-4 pb-4 "
     >
       <p className=" text-2xl  text-[#252525] text-center">Booking</p>
       <div className=" mt-2">
@@ -98,7 +120,10 @@ function Searchform({
         >
           Cancel
         </Button>
-        <Button className=" w-[40%] h-14 text-lg border-[2px] border-solid bg-[#252525] text-white ">
+        <Button
+          onClick={handleSearch}
+          className=" w-[40%] h-14 text-lg border-[2px] border-solid bg-[#252525] text-white "
+        >
           Search
         </Button>
       </div>

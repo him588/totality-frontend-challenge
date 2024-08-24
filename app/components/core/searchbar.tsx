@@ -1,14 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   ApartmentIcon,
   BedIcon,
   DollarIcon,
   FavouriteIcon,
   LocationIcon,
-} from "../../icons";
-import { BasicModal, Button, Searchform } from "../../core";
-
+} from "../icons";
+import { BasicModal, Button, Searchform } from ".";
+import { useRouter } from "next/navigation";
+import { searchCriteriaContext } from "../context";
 function SearchBar() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<number[]>([100, 400]);
@@ -16,7 +17,7 @@ function SearchBar() {
   const [minValue, setMinValue] = useState(100);
   const [maxValue, setMaxValue] = useState(600);
   const [houseType, setHouseType] = useState("house");
-  const [roomValue, setRoomValue] = useState("Select rooms");
+  const [roomValue, setRoomValue] = useState("2-4");
   useEffect(() => {
     if (value[0] > value[1]) {
       setMinValue(value[1]);
@@ -26,6 +27,25 @@ function SearchBar() {
       setMaxValue(value[1]);
     }
   }, [value]);
+  const router = useRouter();
+  const setSearchCriteria = useContext(
+    searchCriteriaContext
+  )?.setSearchCriteria;
+  function handleSearch() {
+    setOpen(false);
+    if (input === "") {
+      console.log("Please enter Location");
+      return;
+    }
+    setSearchCriteria &&
+      setSearchCriteria({
+        minValue,
+        maxValue,
+        location: input,
+        rooms: roomValue,
+      });
+    router.push(`/properties/${input}`);
+  }
   return (
     <div className=" w-full h-full bg-white rounded-2xl flex items-center justify-between gap-2 px-2">
       <BasicModal open={open} setOpen={setOpen}>
@@ -98,7 +118,9 @@ function SearchBar() {
           />
         </div>
       </div>
-      <Button className=" w-[15%] h-[55%] text-xl">Search</Button>
+      <Button onClick={handleSearch} className=" w-[15%] h-[55%] text-xl">
+        Search
+      </Button>
       {/* <div className=" w-[15%] h-[60%] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full"></div> */}
     </div>
   );

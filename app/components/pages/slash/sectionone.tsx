@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../../core";
 import Image from "next/image";
 import AgentCard from "./agentCard";
-import SearchBar from "./searchbar";
+import SearchBar from "../../core/searchbar";
 function SectionOne() {
   return (
     <div className=" h-[110vh] w-full bg-gradient-to-br from-[#fcf3ea] to-[#d8ebf9] flex flex-col gap-3 pb-4">
