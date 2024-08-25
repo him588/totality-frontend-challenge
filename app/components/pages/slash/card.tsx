@@ -66,17 +66,16 @@ function Card({
         unoptimized
         height={0}
         width={0}
-        className=" h-[80%] w-full rounded-2xl"
+        className=" h-[400px] w-full rounded-2xl"
       />
       <div className=" py-2 px-4">
-        <p className=" text-3xl font-semibold">$1,78,000</p>
+        <p className=" text-2xl font-semibold">${properties.price}</p>
         <div className=" flex gap-4 text-[grey] text-base">
           <p>{properties && properties.bedroom} beds</p>
           <p>3 baths</p>
           <p>{properties && properties.area} sqft</p>
         </div>
         <p className=" flex gap-4 text-[grey] text-base">
-          {properties && properties.address.street},
           {properties && properties.address.city},{" "}
           {properties && properties.address.state}{" "}
           {properties && properties.address.country}

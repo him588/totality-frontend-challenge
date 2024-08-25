@@ -78,7 +78,9 @@ function Card({
         />
       </div>
       <div className=" flex items-center  justify-between py-2">
-        <p className=" font-semibold text-xl  ">{properties.title}</p>
+        <p className=" font-semibold text-xl  ">
+          {properties.title.slice(0, 20)}...
+        </p>
         <p className=" font-semibold text-xl  ">${properties.price}</p>
       </div>
       <p>{properties.description}</p>

@@ -21,7 +21,7 @@ function SectionTwo() {
           View all {">"}
         </Button>
       </div>
-      <div className="w-full flex flex-col md:flex-row items-center gap-4 h-auto md:h-[75vh]">
+      <div className="w-full flex flex-col md:flex-row items-center gap-4 h-auto ">
         <div className="w-full md:w-1/2 h-full rounded-2xl">
           <Card properties={Properties[3]} />
         </div>
