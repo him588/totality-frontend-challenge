@@ -63,7 +63,7 @@ function SearchBar() {
         />
       </BasicModal>
       <div className="w-full flex flex-col md:flex-row justify-between gap-4 md:gap-2">
-        <div className="w-full overflow-hidden md:w-[23%] h-[60px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
+        <div className="w-full overflow-hidden md:w-[23%] h-[55px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
           <LocationIcon h={30} w={30} c="#3b3b3b" />
           <div className="flex-1">
             <p className="text-[grey] text-base md:text-lg">Location</p>
@@ -79,7 +79,7 @@ function SearchBar() {
           </div>
         </div>
 
-        <div className="w-full overflow-hidden md:w-[23%] h-[60px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
+        <div className="w-full overflow-hidden md:w-[23%] h-[55px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
           <ApartmentIcon h={30} w={30} c="#3b3b3b" />
           <div className="flex-1">
             <p className="text-[grey] text-base md:text-lg">Property Type</p>
@@ -94,7 +94,7 @@ function SearchBar() {
           </div>
         </div>
 
-        <div className="w-full overflow-hidden md:w-[23%] h-[60px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
+        <div className="w-full overflow-hidden md:w-[23%] h-[55px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
           <DollarIcon h={30} w={30} c="#3b3b3b" />
           <div className="flex-1">
             <p className="text-[grey] text-base md:text-lg">Price</p>
@@ -109,7 +109,7 @@ function SearchBar() {
           </div>
         </div>
 
-        <div className="w-full overflow-hidden md:w-[23%] h-[60px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
+        <div className="w-full overflow-hidden md:w-[23%] h-[55px] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full flex items-center gap-4 px-3">
           <BedIcon h={30} w={30} c="#3b3b3b" />
           <div className="flex-1">
             <p className="text-[grey] text-base md:text-lg">Bedroom</p>

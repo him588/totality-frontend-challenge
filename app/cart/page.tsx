@@ -39,7 +39,7 @@ function Page() {
             <div className=" w-full flex items-center justify-center py-4">
               <Button
                 onClick={() => router.push("/payment")}
-                className=" w-[30%] h-[50px] min-w-[200px] rounded-lg"
+                className=" w-[20%] min-w-[100px] h-[50px]  rounded-lg"
               >
                 Purchase All
               </Button>

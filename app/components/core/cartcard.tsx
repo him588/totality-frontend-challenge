@@ -90,7 +90,7 @@ function CartCard({
         className
       )}
     >
-      <div className="h-[350px] w-[30%] max-[600px]:w-full rounded-2xl overflow-hidden ">
+      <div className="h-[300px] w-[30%] max-[600px]:w-full rounded-2xl overflow-hidden ">
         <Image
           src={properties.images[0]}
           alt=""
@@ -101,49 +101,49 @@ function CartCard({
         />
       </div>
       <div className=" flex flex-col  py-2 gap-2 max-[600px]:pb-8 ">
-        <p className=" font-semibold text-xl  ">
+        <p className=" font-medium text-lg  ">
           <span className=" w-[120px] inline-block">Name</span>:{" "}
           {properties.title}
         </p>
-        <p className=" font-semibold text-xl  ">
+        <p className=" font-medium text-lg  ">
           {" "}
           <span className=" w-[120px] inline-block">Price:</span>: $
           {properties.price}
         </p>
-        <p className=" font-semibold text-xl  ">
+        <p className=" font-medium text-lg  ">
           <span className=" inline-block w-[120px]">Description</span>:{" "}
           {properties.description}
         </p>
-        <p className=" font-semibold text-xl  ">
+        <p className=" font-medium text-lg  ">
           <span className=" inline-block w-[120px]">Address</span>:{" "}
           {properties.address.street},{properties.address.city}
         </p>
-        <p className=" font-semibold text-xl  ">
+        <p className=" font-medium text-lg  ">
           <span className=" inline-block w-[120px]">Location</span>:{" "}
           {properties.address.state},{properties.address.country}
         </p>
       </div>
-      <div className=" flex absolute top-2 right-2 ">
+      <div className=" flex absolute top-2 right-2 bg-white rounded-lg bg-opacity-80 ">
         <div
           onClick={handleDecreaseQuantity}
-          className=" cursor-pointer h-[50px] w-[50px] bg-red-600 flex items-center justify-center text-red-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 text-5xl"
+          className=" cursor-pointer h-[40px] w-[40px] bg-red-600 flex items-center justify-center text-red-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 text-4xl"
         >
           -
         </div>
-        <p className="text-green-600 font-semibold h-[50px] w-[50px] flex items-center justify-center text-2xl">
+        <p className="text-green-600 font-semibold h-[40px] w-[40px] flex items-center justify-center text-2xl">
           {properties.quantity}
         </p>
         <div
           onClick={handleAddQuantity}
-          className=" cursor-pointer h-[50px] w-[50px] bg-green-600 flex items-center justify-center text-green-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 text-5xl"
+          className=" cursor-pointer h-[40px] w-[40px] bg-green-600 flex items-center justify-center text-green-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 text-4xl"
         >
           +
         </div>
       </div>
       <div className=" absolute bottom-2 right-2">
-        <p className=" font-semibold text-xl  ">
+        <p className=" font-medium text-xl  ">
           Total Price:{" "}
-          <span className=" inline-block w-[10  0px]">
+          <span className=" inline-block w-[100px]">
             ${properties.quantity * properties.price}
           </span>
         </p>

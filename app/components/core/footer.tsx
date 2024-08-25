@@ -13,7 +13,7 @@ function Footer() {
           <div className="flex flex-col gap-3 w-full sm:w-[45%] md:w-auto">
             <div className="flex flex-col gap-1">
               <p className="text-[grey] text-lg">Menu</p>
-              <div className="text-lg md:text-xl font-medium flex flex-col gap-1">
+              <div className="text-lg  font-medium flex flex-col gap-1">
                 <p className="cursor-pointer transition-all duration-200 hover:pl-2">
                   About
                 </p>
@@ -30,7 +30,7 @@ function Footer() {
             </div>
             <div className="flex flex-col gap-1">
               <p className="text-[grey] text-lg">Legal</p>
-              <div className="text-lg md:text-xl font-medium flex flex-col gap-1">
+              <div className="text-lg  font-medium flex flex-col gap-1">
                 <p className="cursor-pointer transition-all duration-200 hover:pl-2">
                   Privacy Policy
                 </p>
@@ -44,7 +44,7 @@ function Footer() {
           <div className="flex flex-col gap-3 w-full sm:w-[45%] md:w-auto">
             <div className="flex flex-col gap-1">
               <p className="text-[grey] text-lg">Info</p>
-              <div className="text-lg md:text-xl font-medium flex flex-col gap-1">
+              <div className="text-lg  font-medium flex flex-col gap-1">
                 <p className="cursor-pointer transition-all duration-200 hover:pl-2">
                   Blog
                 </p>
@@ -61,7 +61,7 @@ function Footer() {
             </div>
             <div className="flex flex-col gap-1">
               <p className="text-[grey] text-lg">Agents</p>
-              <div className="text-lg md:text-xl font-medium flex flex-col gap-1">
+              <div className="text-lg  font-medium flex flex-col gap-1">
                 <p className="cursor-pointer transition-all duration-200 hover:pl-2">
                   Top agents
                 </p>
@@ -75,7 +75,7 @@ function Footer() {
           <div className="flex flex-col gap-3 w-full sm:w-[45%] md:w-auto">
             <div className="flex flex-col gap-1">
               <p className="text-[grey] text-lg">Help</p>
-              <div className="text-lg md:text-xl font-medium flex flex-col gap-1">
+              <div className="text-lg  font-medium flex flex-col gap-1">
                 <p className="cursor-pointer transition-all duration-200 hover:pl-2">
                   Support
                 </p>
@@ -92,7 +92,7 @@ function Footer() {
             </div>
             <div className="flex flex-col gap-1">
               <p className="text-[grey] text-lg">Contacts</p>
-              <div className="text-lg md:text-xl font-medium flex flex-col gap-1">
+              <div className="text-lg  font-medium flex flex-col gap-1">
                 <p className="cursor-pointer transition-all duration-200 hover:pl-2">
                   +91 8447162049
                 </p>
@@ -108,7 +108,7 @@ function Footer() {
       <div className="w-full flex flex-wrap justify-between items-center mt-[30px] py-4 border-t-[1px] border-[grey]">
         <div className="flex items-center text-[#bdbdbd]">
           <Copyicon h={25} w={25} c="black" />
-          <span className="ml-2">2023 Estatify, Inc</span>
+          <span className="ml-2 text-sm">2023 Estatify, Inc</span>
         </div>
         <div className="flex gap-3 mt-4 md:mt-0 max-[400px]:gap-1">
           <Faceicon h={30} w={30} c="black" />

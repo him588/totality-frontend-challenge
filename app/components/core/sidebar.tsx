@@ -30,27 +30,27 @@ export default function TemporaryDrawer() {
       role="presentation"
       onClick={toggleDrawer(false)}
     >
-      <div className=" h-[100px]  w-full  rounded-2xl overflow-hidden hover:bg-gray-400 hover:bg-opacity-20 flex items-center gap-2 cursor-pointer">
-        <div className="h-[70px] w-[70px] rounded-xl bg-[#3b3b3b] flex items-center justify-center text-white font-semibold text-4xl ">
+      <div className=" h-[80px]  w-full  rounded-2xl overflow-hidden hover:bg-gray-400 hover:bg-opacity-20 flex items-center gap-2 cursor-pointer">
+        <div className="h-[60px] w-[60px] rounded-xl bg-[#3b3b3b] flex items-center justify-center text-white  text-4xl ">
           <p>{currentUser && currentUser.name.split("")[0].toUpperCase()}</p>
         </div>
         <div>
-          <p className=" text-[#3b3b3b] font-semibold text-lg uppercase">
+          <p className=" text-[#3b3b3b]  text-lg font-semibold uppercase">
             {currentUser && currentUser.name}
           </p>
-          <p>{currentUser && currentUser.email}</p>
+          <p className="text-sm">{currentUser && currentUser.email}</p>
         </div>
       </div>
       <div className=" mt-4">
         {" "}
         <Link href={"/"}>
-          <div className=" cursor-pointer h-[50px] w-full hover:bg-gray-400 hover:bg-opacity-20 flex items-center px-3 text-xl font-bold rounded-lg gap-2">
+          <div className=" cursor-pointer h-[40px] w-full hover:bg-gray-400 hover:bg-opacity-20 flex items-center px-3 text-lg   rounded-lg gap-2">
             <HomeIcon h={25} w={25} c="#3b3b3b" />
             Home
           </div>
         </Link>
         <Link href={"/cart"}>
-          <div className=" cursor-pointer h-[50px] w-full hover:bg-gray-400 hover:bg-opacity-20 flex items-center px-3 text-xl font-bold rounded-lg gap-2">
+          <div className=" cursor-pointer h-[40px] w-full hover:bg-gray-400 hover:bg-opacity-20 flex items-center px-3 text-lg   rounded-lg gap-2">
             <CartIcon h={30} w={30} c="#3b3b3b" />
             Cart
           </div>
@@ -69,10 +69,10 @@ export default function TemporaryDrawer() {
   return (
     <div>
       <Button
-        className=" h-[60px] w-[60px] mt-2 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 hover:bg-opacity-5 flex items-center justify-center "
+        className=" h-[50px] w-[50px] mt-2 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 hover:bg-opacity-5 flex items-center justify-center "
         onClick={toggleDrawer(true)}
       >
-        <Menu h={40} w={40} c="black" />
+        <Menu h={50} w={50} c="black" />
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}

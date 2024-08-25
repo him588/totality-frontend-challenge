@@ -63,11 +63,11 @@ function Card({
   return (
     <div
       className={twMerge(
-        " min-w-[300px] min-h-[300px] relative rounded-2xl bg-white  shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] p-2",
+        " min-w-[280px] min-h-[280px] relative rounded-2xl bg-white  shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] p-2",
         className
       )}
     >
-      <div className="h-[400px] w-full rounded-2xl overflow-hidden ">
+      <div className="h-[280px] w-full rounded-2xl overflow-hidden ">
         <Image
           src={properties.images[0]}
           alt=""
@@ -79,11 +79,11 @@ function Card({
       </div>
       <div className=" flex items-center  justify-between py-2">
         <p className=" font-semibold text-xl  ">
-          {properties.title.slice(0, 20)}...
+          {properties.title.slice(0, 17)}...
         </p>
         <p className=" font-semibold text-xl  ">${properties.price}</p>
       </div>
-      <p>{properties.description}</p>
+      <p>{properties.description.slice(0, 50)}...</p>
       <div className=" flex gap-2">
         <Button
           onClick={() => router.push(`/payment/${properties.id}`)}

@@ -20,7 +20,7 @@ export default function RangeSlider({
   return (
     <div className=" w-full">
       <Slider
-        style={{ color: "#3b3b3b", height: "5px" }}
+        style={{ color: "#3b3b3b", height: "3px" }}
         value={value}
         onChange={handleChange}
         step={100}

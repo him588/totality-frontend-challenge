@@ -59,23 +59,23 @@ function Card({
     console.log(isPropertyExistsInCart);
   }
   return (
-    <div className="relative h-full w-full cursor-pointer flex flex-col gap-1 p-2 hover:shadow-xl transition-shadow duration-300 ease-in-out rounded-xl">
+    <div className="relative  w-full min-w-[280px] cursor-pointer flex flex-col gap-1 p-2 hover:shadow-xl transition-shadow duration-300 ease-in-out rounded-xl">
       <Image
         src={properties.images[0]}
         alt=""
         unoptimized
         height={0}
         width={0}
-        className=" h-[400px] w-full rounded-2xl"
+        className=" h-[300px] w-full rounded-2xl"
       />
       <div className=" py-2 px-4">
         <p className=" text-2xl font-semibold">${properties.price}</p>
         <div className=" flex gap-4 text-[grey] text-base">
           <p>{properties && properties.bedroom} beds</p>
           <p>3 baths</p>
-          <p>{properties && properties.area} sqft</p>
+          <p>{properties && properties.area} </p>
         </div>
-        <p className=" flex gap-4 text-[grey] text-base">
+        <p className=" flex gap-4 text-[grey] text-sm">
           {properties && properties.address.city},{" "}
           {properties && properties.address.state}{" "}
           {properties && properties.address.country}
@@ -83,7 +83,7 @@ function Card({
       </div>
       <div
         onClick={handleCart}
-        className=" absolute top-0 right-0 h-[50px] w-[50px] rounded-lg bg-gray-500 cursor-pointer bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 flex items-center justify-center"
+        className=" absolute top-0 right-0 h-[50px] w-[50px] rounded-lg bg-white cursor-pointer bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-100 flex items-center justify-center"
       >
         <CartIcon h={40} w={40} c="#3b3b3b" />
       </div>

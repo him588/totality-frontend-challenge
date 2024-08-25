@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-white">
+    <div className=" w-full bg-white">
       <ToastContainer />
       <SectionOne />
       <SectionTwo />

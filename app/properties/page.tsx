@@ -1,12 +1,10 @@
 "use client";
-import { properties } from "@/types";
 import { Properties } from "@/data";
-import { searchCriteriaContext } from "@/app/components/context";
 import { Card, Header } from "@/app/components/core";
 import SearchBar from "@/app/components/core/searchbar";
 import { Footer } from "@/app/components/core";
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { ToastContainer } from "react-toastify";
 
 interface FilterCriteria {
@@ -26,10 +24,10 @@ function Page() {
           <SearchBar />
         </div>
       </div>
-      <div className="h-auto min-h-[50vh] px-4 sm:px-7 py-2 flex flex-wrap gap-4 sm:gap-3">
+      <div className="h-auto min-h-[50vh] px-4 sm:px-7 py-2 flex  gap-4 sm:gap-3">
         {Properties.length === 0 ? (
           <div className="w-full flex flex-col items-center justify-center py-10">
-            <p className="text-2xl sm:text-4xl font-bold text-center">
+            <p className="text-2xl sm:text-3xl font-bold text-center">
               Sorry, no data available regarding your query
             </p>
             <Image
@@ -43,13 +41,11 @@ function Page() {
             />
           </div>
         ) : (
-          Properties.map((item, key) => (
-            <Card
-              key={key}
-              className="w-full sm:w-[48%] lg:w-[24%]"
-              properties={item}
-            />
-          ))
+          <div className=" flex items-center flex-wrap justify-between gap-2">
+            {Properties.map((item, key) => (
+              <Card key={key} className=" w-[24%]" properties={item} />
+            ))}
+          </div>
         )}
       </div>
       <div className="px-4 sm:px-7 py-4 bg-gradient-to-br from-[#fcf3ea] to-[#d8ebf9]">

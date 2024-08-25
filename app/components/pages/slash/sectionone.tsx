@@ -10,7 +10,7 @@ function SectionOne() {
       <div className="h-[10%]">
         <Header />
       </div>
-      <div className="px-4 md:px-8 h-[500px] flex flex-col">
+      <div className="px-4 md:px-8 h-[400px] flex flex-col">
         <div className="h-full w-full flex flex-col md:flex-row gap-2">
           <div className="h-[300px] md:h-full w-full md:w-[70%]  rounded-2xl overflow-hidden">
             <Image

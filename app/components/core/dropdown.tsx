@@ -16,7 +16,7 @@ export default function Dropdown({
     setShow(false);
   }
   return (
-    <div className=" relative w-full flex items-center justify-between rounded-full border-solid border-[2px] border-[#dbdada] h-14 outline-none px-4 text-lg text-[#252525] ">
+    <div className=" relative w-full flex items-center justify-between rounded-full border-solid border-[1.5px] border-[#dbdada] h-12 outline-none px-4 text-lg text-[#252525] ">
       <p>{value}</p>
       <div
         onClick={() => setShow((prev) => !prev)}
