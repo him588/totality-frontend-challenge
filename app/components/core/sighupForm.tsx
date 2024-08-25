@@ -1,9 +1,12 @@
 "use client";
 import { user } from "@/types";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useContext } from "react";
+import { CurrentUserContext } from "../context";
 import useAuth from "../hooks/authHook";
 import Button from "./button";
 import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
+
 type prop = {
   setSighup: React.Dispatch<React.SetStateAction<boolean>>;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,15 +19,48 @@ function SighupForm({ setSighup, setLogin }: prop) {
     password: "",
     cart: [],
   });
-  const { sighup } = useAuth(formDetail);
+  const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+  const usersString = localStorage.getItem("users");
+  const setCurrentUser = useContext(CurrentUserContext)?.setcurrentUser;
+  const [users, setUsers] = useState<user[]>(
+    usersString ? JSON.parse(usersString) : []
+  );
+  function handleUserAdd() {
+    if (formDetail.name.length < 3) {
+      toast.error("name is not less than 3", {
+        position: "top-center",
+      });
+      return;
+    }
+    if (!emailRegex.test(formDetail.email)) {
+      toast.error("Email contains @", { position: "top-center" });
+      return;
+    }
+    if (formDetail.password.length < 6) {
+      toast.error("password atleast 6 char", { position: "top-center" });
+      return;
+    }
+    const isUserExists = users.filter(
+      (user) => user.email === formDetail.email
+    );
+    if (isUserExists.length === 0) {
+      const allNewUsers = [...users, formDetail];
+      localStorage.setItem("users", JSON.stringify(allNewUsers));
+      localStorage.setItem("currentUser", JSON.stringify(formDetail));
+      setUsers(allNewUsers);
+      setCurrentUser && setCurrentUser(formDetail);
+      toast.success("User registered Successfully", {
+        position: "top-center",
+      });
+      setSighup(false);
+    } else {
+      toast.error("Email already exists", { position: "top-center" });
+    }
+  }
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setFormDetail((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
-  }
-  function handleUserAdd() {
-    sighup();
-    setSighup(false);
   }
   return (
     <div

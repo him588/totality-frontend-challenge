@@ -22,7 +22,7 @@ function Header() {
       {/* <BasicModal open={openLogin} setOpen={setOpenLogin}>
         Login
       </BasicModal> */}
-      <div className=" w-[20%]">
+      <div className=" w-[20%] cursor-pointer">
         <Logo />
       </div>
       <div className=" flex items-center justify-center w-[60%] gap-7 font-medium text-lg">

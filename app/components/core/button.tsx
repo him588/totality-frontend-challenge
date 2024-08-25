@@ -4,10 +4,10 @@ type prop = {
   children: React.ReactNode;
   size?: "small" | "medium" | "large";
   className?: string;
-  onClick?:React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-function Button({ children, size = "medium", className,onClick }: prop) {
+function Button({ children, size = "medium", className, onClick }: prop) {
   const sizeClassNames = {
     small: "text-sm px-3 py-1",
     medium: "text-base px-4 py-2",
@@ -15,9 +15,9 @@ function Button({ children, size = "medium", className,onClick }: prop) {
   };
   return (
     <button
-    onClick={onClick}
+      onClick={onClick}
       className={twMerge(
-        " rounded-full bg-black text-white",
+        " rounded-full bg-black text-white hover:bg-opacity-80",
         sizeClassNames[size],
         className
       )}

@@ -13,6 +13,7 @@ import Twiticon from "./twiticon";
 import Instaicon from "./instaicom";
 import Copyicon from "./copyicon";
 import DownIcon from "./downicon";
+import CartIcon from "./carticon";
 export {
   FavouriteIcon,
   Menu,
@@ -29,4 +30,5 @@ export {
   Instaicon,
   Copyicon,
   DownIcon,
+  CartIcon,
 };

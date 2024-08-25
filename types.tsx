@@ -7,7 +7,7 @@ export type user = {
   name: string;
   email: string;
   password: string;
-  cart: properties[];
+  cart: cartProperties[];
 };
 
 export type properties = {
@@ -26,4 +26,7 @@ export type properties = {
   amenities: string[];
   images: string[];
   area: string;
+};
+export type cartProperties = properties & {
+  quantity: number;
 };

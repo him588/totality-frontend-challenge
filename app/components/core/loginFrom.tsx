@@ -1,9 +1,11 @@
 "use client";
 import { user } from "@/types";
-import React, { ChangeEvent, useState } from "react";
-import useAuth from "../hooks/authHook";
+import React, { ChangeEvent, useState, useContext } from "react";
+import { CurrentUserContext } from "../context";
 import Button from "./button";
 import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 type prop = {
   setSighup: React.Dispatch<React.SetStateAction<boolean>>;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,15 +18,40 @@ function LoginForm({ setSighup, setLogin }: prop) {
     password: "",
     cart: [],
   });
-  const { login } = useAuth(formDetail);
+  const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+  const usersString = localStorage.getItem("users");
+  const setCurrentUser = useContext(CurrentUserContext)?.setcurrentUser;
+  const [users, setUsers] = useState<user[]>(
+    usersString ? JSON.parse(usersString) : []
+  );
+
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setFormDetail((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   }
   function handleLogin() {
-    login();
-    setLogin(false);
+    if (!emailRegex.test(formDetail.email)) {
+      toast.error("Email contains @", { position: "top-center" });
+      return;
+    }
+    if (formDetail.password.length < 6) {
+      toast.error("password atleast 6 char", { position: "top-center" });
+      return;
+    }
+    const isUserExists = users.filter(
+      (user) =>
+        user.email === formDetail.email && user.password === formDetail.password
+    );
+    if (isUserExists.length === 0) {
+      toast.error("Email or Password is incorrect", { position: "top-center" });
+      return;
+    } else {
+      setCurrentUser && setCurrentUser(isUserExists[0]);
+      localStorage.setItem("currentUser", JSON.stringify(isUserExists[0]));
+      toast.success("login successfull", { position: "top-center" });
+      setLogin(false);
+    }
   }
   return (
     <div
@@ -32,18 +59,8 @@ function LoginForm({ setSighup, setLogin }: prop) {
       className=" flex flex-col  h-[400px] w-[450px] bg-white rounded-2xl p-3"
     >
       <div className=" flex flex-col items-center gap-3">
-        <p className=" text-center font-semibold text-3xl">Sigh up</p>
-        {/* <div className=" w-full">
-          <p className=" text-xl">Name</p>
-          <input
-            type="text"
-            name="name"
-            placeholder="Ex-Himanshu"
-            className=" rounded-lg border-[2px] border-solid border-gray-400 w-full h-[50px] px-2 text-lg outline-slate-500"
-            value={formDetail.name}
-            onChange={handleChange}
-          />
-        </div> */}
+        <p className=" text-center font-semibold text-3xl">Login</p>
+
         <div className=" w-full">
           <p className=" text-xl">Email</p>
           <input

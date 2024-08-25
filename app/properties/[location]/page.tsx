@@ -4,9 +4,10 @@ import { Properties } from "@/data";
 import { searchCriteriaContext } from "@/app/components/context";
 import { Card, Header } from "@/app/components/core";
 import SearchBar from "@/app/components/core/searchbar";
-import Footer from "@/app/components/pages/slash/footer";
+import { Footer } from "@/app/components/core";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 interface FilterCriteria {
   minValue: number;
   maxValue: number;
@@ -57,6 +58,7 @@ function Page() {
   console.log(searchCriteria);
   return (
     <div className=" min-h-screen w-full bg-white">
+      <ToastContainer/>
       <div className=" w-full bg-gradient-to-br from-[#fcf3ea] to-[#d8ebf9] flex flex-col gap-3 pb-4">
         <Header />
         <div className=" px-7 h-[120px]">
@@ -80,7 +82,9 @@ function Page() {
             />
           </div>
         ) : (
-          shownItem.map((item, key) => <Card key={key} className="w-[24%]" />)
+          shownItem.map((item, key) => (
+            <Card key={key} className="w-[24%]" properties={item} />
+          ))
         )}
       </div>
       <div className=" px-7 py-4 bg-gradient-to-br from-[#fcf3ea] to-[#d8ebf9]">

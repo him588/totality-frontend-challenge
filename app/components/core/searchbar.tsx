@@ -68,11 +68,13 @@ function SearchBar() {
         <div>
           <p className=" text-[grey] text-xl">Location</p>
           <input
+            onClick={() => setOpen(true)}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            readOnly
             placeholder="Ex-Delhi"
-            className="text-xl outline-none font-semibold text-[#3b3b3b] text-opacity-90 placeholder:text-opacity-90 placeholder:text-[#3b3b3b]"
+            className="text-xl cursor-pointer outline-none font-semibold text-[#3b3b3b] text-opacity-90 placeholder:text-opacity-90 placeholder:text-[#3b3b3b]"
           />
         </div>
       </div>
@@ -118,9 +120,9 @@ function SearchBar() {
           />
         </div>
       </div>
-      <Button onClick={handleSearch} className=" w-[15%] h-[55%] text-xl">
+      {/* <Button onClick={handleSearch} className=" w-[15%] h-[55%] text-xl">
         Search
-      </Button>
+      </Button> */}
       {/* <div className=" w-[15%] h-[60%] border-[2px] border-solid border-[grey] border-opacity-50 rounded-full"></div> */}
     </div>
   );
