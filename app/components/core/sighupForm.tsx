@@ -2,7 +2,6 @@
 import { user } from "@/types";
 import React, { ChangeEvent, useState, useContext } from "react";
 import { CurrentUserContext } from "../context";
-import useAuth from "../hooks/authHook";
 import Button from "./button";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
