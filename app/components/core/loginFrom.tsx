@@ -56,7 +56,7 @@ function LoginForm({ setSighup, setLogin }: prop) {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className=" flex flex-col  h-[400px] w-[450px] bg-white rounded-2xl p-3"
+      className=" flex flex-col h-auto max-w-md bg-white rounded-2xl p-4 mx-4 sm:mx-auto w-[40%] min-w-[300px]"
     >
       <div className=" flex flex-col items-center gap-3">
         <p className=" text-center font-semibold text-3xl">Login</p>

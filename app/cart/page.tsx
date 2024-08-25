@@ -38,7 +38,7 @@ function Page() {
               <CartCard key={key} className="w-full" properties={item} />
             ))}
             <div className=" w-full flex items-center justify-center py-4">
-              <Button className=" w-[30%] h-[50px] rounded-lg">
+              <Button className=" w-[30%] h-[50px] min-w-[200px] rounded-lg">
                 Purchase All
               </Button>
             </div>

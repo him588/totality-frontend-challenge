@@ -65,7 +65,7 @@ function SighupForm({ setSighup, setLogin }: prop) {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className=" flex flex-col h-[500px] w-[450px] bg-white rounded-2xl p-3"
+      className=" flex flex-col  w-[40%] min-w-[300px] bg-white rounded-2xl p-3"
     >
       <div className=" flex flex-col items-center gap-3">
         <p className=" text-center font-semibold text-3xl">Sigh up</p>

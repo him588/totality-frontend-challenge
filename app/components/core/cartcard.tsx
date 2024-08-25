@@ -86,11 +86,11 @@ function CartCard({
   return (
     <div
       className={twMerge(
-        " min-w-[300px] min-h-[300px] gap-4 relative rounded-2xl bg-white  shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex p-2",
+        " min-w-[300px] max-[600px]:flex-col min-h-[300px] gap-4 relative rounded-2xl bg-white  shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex p-2",
         className
       )}
     >
-      <div className="h-[350px] w-[30%] rounded-2xl overflow-hidden ">
+      <div className="h-[350px] w-[30%] max-[600px]:w-full rounded-2xl overflow-hidden ">
         <Image
           src={
             "https://images.unsplash.com/photo-1722491945502-abb7235593f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvcGVydGllc3xlbnwwfDF8MHx8fDA%3D"
@@ -102,7 +102,7 @@ function CartCard({
           className="h-full w-full rounded-2xl"
         />
       </div>
-      <div className=" flex flex-col  py-2 gap-2 ">
+      <div className=" flex flex-col  py-2 gap-2 max-[600px]:pb-8 ">
         <p className=" font-semibold text-xl  ">
           <span className=" w-[120px] inline-block">Name</span>:{" "}
           {properties.title}
