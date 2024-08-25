@@ -6,6 +6,7 @@ import BasicModal from "./modal";
 import SighupForm from "./sighupForm";
 import { CurrentUserContext } from "../context";
 import LoginForm from "./loginFrom";
+import { Sidebar } from ".";
 
 function Header() {
   const [openSighup, setOpenSighup] = useState(false);
@@ -41,7 +42,9 @@ function Header() {
       </div>
       <div className="w-[20%] flex items-end justify-end gap-2">
         {currentUser ? (
-          ""
+          <>
+            <Sidebar />
+          </>
         ) : (
           <>
             <Button onClick={() => setOpenLogin(true)} className=" w-[120px]">

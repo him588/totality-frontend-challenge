@@ -14,6 +14,7 @@ import Instaicon from "./instaicom";
 import Copyicon from "./copyicon";
 import DownIcon from "./downicon";
 import CartIcon from "./carticon";
+import HomeIcon from "./homeicon";
 export {
   FavouriteIcon,
   Menu,
@@ -31,4 +32,5 @@ export {
   Copyicon,
   DownIcon,
   CartIcon,
+  HomeIcon,
 };

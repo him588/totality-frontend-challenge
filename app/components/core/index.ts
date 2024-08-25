@@ -9,6 +9,8 @@ import SighupForm from "./sighupForm";
 import Card from "./card";
 import Footer from "./footer";
 import CartCard from "./cartcard";
+import Sidebar from "./sidebar";
+import LogoutIcon from "./logouticon";
 export {
   Logo,
   Button,
@@ -21,4 +23,6 @@ export {
   Card,
   Footer,
   CartCard,
+  Sidebar,
+  LogoutIcon,
 };
