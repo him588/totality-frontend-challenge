@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { cartProperties, user } from "@/types";
 import Image from "next/image";
-import "react-toastify/dist/ReactToastify.css"; // Ensure this is imported
+import "react-toastify/dist/ReactToastify.css";
 import { CurrentUserContext } from "../components/context";
 import { useRouter } from "next/navigation";
 

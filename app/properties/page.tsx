@@ -17,45 +17,6 @@ interface FilterCriteria {
 }
 
 function Page() {
-  const searchCriteria = useContext(searchCriteriaContext)?.searchCriteria;
-  const [shownItem, setShownItem] = useState<properties[]>([]);
-
-  function filterProperties(
-    properties: properties[],
-    criteria: FilterCriteria
-  ): properties[] {
-    return properties.filter((property) => {
-      const { price, address, bedroom } = property;
-
-      // Check if the price is within the specified range
-      const matchesPrice =
-        price >= criteria.minValue && price <= criteria.maxValue;
-
-      // Check if at least one of the location criteria matches
-      const matchesCity = criteria.location
-        ? address.city.toLowerCase() === criteria.location.toLowerCase()
-        : false;
-      const matchesState = criteria.location
-        ? address.state.toLowerCase() === criteria.location.toLowerCase()
-        : false;
-      const matchesCountry = criteria.location
-        ? address.country.toLowerCase() === criteria.location.toLowerCase()
-        : false;
-
-      const matchesLocation = matchesCity || matchesState || matchesCountry;
-
-      const matchesRooms = bedroom === criteria.rooms;
-
-      return matchesPrice && matchesLocation && matchesRooms;
-    });
-  }
-
-  useEffect(() => {
-    if (searchCriteria) {
-      setShownItem(filterProperties(Properties, searchCriteria));
-    }
-  }, [searchCriteria]);
-
   return (
     <div className="min-h-screen w-full bg-white">
       <ToastContainer />
@@ -66,7 +27,7 @@ function Page() {
         </div>
       </div>
       <div className="h-auto min-h-[50vh] px-4 sm:px-7 py-2 flex flex-wrap gap-4 sm:gap-3">
-        {shownItem.length === 0 ? (
+        {Properties.length === 0 ? (
           <div className="w-full flex flex-col items-center justify-center py-10">
             <p className="text-2xl sm:text-4xl font-bold text-center">
               Sorry, no data available regarding your query
@@ -82,7 +43,7 @@ function Page() {
             />
           </div>
         ) : (
-          shownItem.map((item, key) => (
+          Properties.map((item, key) => (
             <Card
               key={key}
               className="w-full sm:w-[48%] lg:w-[24%]"

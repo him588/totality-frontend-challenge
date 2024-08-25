@@ -60,9 +60,6 @@ function AgentCard() {
         </div>
         <p className=" absolute top-3 right-5 text-xl text-gray-500">Agent</p>
       </div>
-      {/* <Button className=" bottom-2 h-[60px] text-xl w-full mt-4">
-        Book for tour
-      </Button> */}
     </>
   );
 }

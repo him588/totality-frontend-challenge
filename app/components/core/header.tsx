@@ -26,21 +26,6 @@ function Header() {
         <Logo />
       </div>
 
-      {/* <div className="hidden md:flex items-center justify-center w-[60%] gap-7 font-medium text-lg">
-        <p className="cursor-pointer hover:text-[19px] min-w-[120px] transition-all duration-150">
-          Houses
-        </p>
-        <p className="cursor-pointer hover:text-[19px] min-w-[120px] transition-all duration-150">
-          Rentals
-        </p>
-        <p className="cursor-pointer hover:text-[19px] min-w-[120px] transition-all duration-150">
-          Commercial
-        </p>
-        <p className="cursor-pointer hover:text-[19px] min-w-[120px] transition-all duration-150">
-          Contact
-        </p>
-      </div> */}
-
       <div className="w-[50%] md:w-[20%] flex items-end justify-end gap-2">
         {currentUser ? (
           <Sidebar />

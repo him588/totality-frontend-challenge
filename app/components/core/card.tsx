@@ -69,9 +69,7 @@ function Card({
     >
       <div className="h-[400px] w-full rounded-2xl overflow-hidden ">
         <Image
-          src={
-            "https://images.unsplash.com/photo-1722491945502-abb7235593f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvcGVydGllc3xlbnwwfDF8MHx8fDA%3D"
-          }
+          src={properties.images[0]}
           alt=""
           height={0}
           width={0}
@@ -91,9 +89,6 @@ function Card({
         >
           Book Now
         </Button>
-        {/* <Button className=" mt-4 w-1/4 rounded-xl h-[50px] text-lg hover:bg-opacity-85 transition-all duration-200">
-          Cart
-        </Button> */}
       </div>
       <div
         onClick={handleCart}

@@ -14,9 +14,6 @@ function Page() {
       <ToastContainer />
       <div className=" w-full bg-gradient-to-br from-[#fcf3ea] to-[#d8ebf9] flex flex-col gap-3 pb-4">
         <Header />
-        {/* <div className=" px-7 h-[120px]">
-          <SearchBar />
-        </div> */}
       </div>
       <div className=" h-auto min-h-[50vh] px-7 py-2 flex flex-wrap gap-3  ">
         {currentUser?.cart.length === 0 ? (

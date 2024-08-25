@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Card from "./card";
 import { Button } from "../../core";
 import { Properties } from "@/data";
+import { useRouter } from "next/navigation";
 
 function SectionThree() {
+  const router = useRouter();
   return (
     <div className="flex flex-col gap-3 px-4 py-4">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -12,6 +15,7 @@ function SectionThree() {
         </p>
         <Button
           size="small"
+          onClick={() => router.push("/properties")}
           className="px-3 py-2 sm:px-4 sm:py-2 border-2 bg-transparent border-solid border-black text-black font-semibold text-sm sm:text-base"
         >
           View all {">"}

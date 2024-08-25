@@ -21,16 +21,12 @@ export default function RangeSlider({
     <div className=" w-full">
       <Slider
         style={{ color: "#3b3b3b", height: "5px" }}
-        // getAriaLabel={() => "Temperature range"}
         value={value}
         onChange={handleChange}
         step={100}
-        // valueLabelDisplay="auto"
         min={100}
         size="medium"
         max={12000}
-        // color={["#252525","primary"]}
-        // getAriaValueText={valuetext}
       />
     </div>
   );

@@ -61,9 +61,7 @@ function Card({
   return (
     <div className="relative h-full w-full cursor-pointer flex flex-col gap-1 p-2 hover:shadow-xl transition-shadow duration-300 ease-in-out rounded-xl">
       <Image
-        src={
-          "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        }
+        src={properties.images[0]}
         alt=""
         unoptimized
         height={0}
@@ -94,69 +92,3 @@ function Card({
   );
 }
 export default Card;
-// import Image from "next/image";
-
-// function Card() {
-//   return (
-//     <div className="h-full w-full flex flex-col gap-2 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-//       <div className="relative h-[80%] w-full rounded-2xl overflow-hidden">
-//         <Image
-//           src={
-//             "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-//           }
-//           alt="Property Image"
-//           unoptimized
-//           layout="fill"
-//           objectFit="cover"
-//           className="rounded-2xl h-full w-full"
-//         />
-//       </div>
-//       <div className="flex flex-col gap-1 px-2 py-3">
-//         <p className="text-2xl font-semibold text-gray-800">$1,78,000</p>
-//         <div className="flex gap-4 text-gray-600 text-base">
-//           <p>4 beds</p>
-//           <p>3 baths</p>
-//           <p>1,868 sqft</p>
-//         </div>
-//         <p className="text-gray-500 text-sm">
-//           201 Prague Dr, San Jose, CA 95119
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Card;
-// import Image from "next/image";
-
-// function Card() {
-//   return (
-//     <div className="h-full w-full flex flex-col gap-2 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-//       <div className="relative h-[200px] sm:h-[250px] w-full rounded-2xl overflow-hidden">
-//         <Image
-//           src={
-//             "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-//           }
-//           alt="Property Image"
-//           unoptimized
-//           width={0}
-//           height={200}
-//           className="rounded-2xl w-full h-full"
-//         />
-//       </div>
-//       <div className="flex flex-col gap-1 px-2 py-3">
-//         <p className="text-2xl font-semibold text-gray-800">$1,78,000</p>
-//         <div className="flex gap-4 text-gray-600 text-base">
-//           <p>4 beds</p>
-//           <p>3 baths</p>
-//           <p>1,868 sqft</p>
-//         </div>
-//         <p className="text-gray-500 text-sm">
-//           201 Prague Dr, San Jose, CA 95119
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Card;

@@ -50,7 +50,6 @@ function Page({ params }: CheckoutProps) {
       }
     }
 
-    // Validate card details
     if (!cardDetails.name) {
       toast.error("Cardholder's name is required", { position: "top-center" });
       valid = false;
@@ -68,13 +67,11 @@ function Page({ params }: CheckoutProps) {
       valid = false;
     }
 
-    // Basic card number validation
     if (cardDetails.number && !/^\d{16}$/.test(cardDetails.number)) {
       toast.error("Card number must be 16 digits", { position: "top-center" });
       valid = false;
     }
 
-    // Basic expiration date validation
     if (cardDetails.exp && !/^\d{2}\/\d{2}$/.test(cardDetails.exp)) {
       toast.error("Expiration date must be in MM/YY format", {
         position: "top-center",
@@ -92,11 +89,6 @@ function Page({ params }: CheckoutProps) {
       router.push("/success");
     }
   }
-  // function calculateTotalAmount(cart: cartProperties[]) {
-  //   return cart.reduce((total, property) => {
-  //     return total + property.price * property.quantity;
-  //   }, 0);
-  // }
 
   return (
     <div className=" bg-white">
@@ -276,7 +268,6 @@ function Page({ params }: CheckoutProps) {
                 <h2 className="text-lg font-bold text-gray-800">Total</h2>
                 <span className="text-lg font-bold text-gray-800">
                   ${propertieDetails && propertieDetails.price}
-                  {/* ${calculateTotalAmount(currentUser?.cart ?? [])} */}
                 </span>
               </div>
             </div>
