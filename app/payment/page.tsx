@@ -1,15 +1,17 @@
 "use client";
 import React, { useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { user } from "@/types";
+import { cartProperties, user } from "@/types";
 import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css"; // Ensure this is imported
 import { CurrentUserContext } from "../components/context";
+import { useRouter } from "next/navigation";
 
 const Checkout: React.FC = () => {
   const [paymentMethod, setPaymentMethod] = useState<string>("card");
   const { currentUser, setcurrentUser } = useContext(CurrentUserContext) || {};
   const usersString = localStorage.getItem("users");
+  const router = useRouter();
   const [users, setUsers] = useState<user[]>(
     usersString ? JSON.parse(usersString) : []
   );
@@ -89,20 +91,30 @@ const Checkout: React.FC = () => {
     const allUserExecptCurrent = users.filter(
       (user) => user.email !== currentUser?.email
     );
-    const newUser: user = {
-      ...currentUser!,
-      name: currentUser!.name,
-      email: currentUser!.email,
-      password: currentUser!.password,
-      cart: [],
-    };
 
-    if (validateForm()) {
-      const newUser = { ...currentUser, cart: [] };
+    if (validateForm() && currentUser) {
+      const newUser: user = {
+        name: currentUser.name,
+        email: currentUser.email,
+        password: currentUser.password,
+        cart: [],
+      };
       setcurrentUser && setcurrentUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));
+      localStorage.setItem(
+        "users",
+        JSON.stringify([...allUserExecptCurrent, newUser])
+      );
+      setUsers((prev) => [...allUserExecptCurrent, newUser]);
+      router.push("/success");
+
       toast.success("Order placed successfully!", { position: "top-center" });
     }
+  }
+  function calculateTotalAmount(cart: cartProperties[]) {
+    return cart.reduce((total, property) => {
+      return total + property.price * property.quantity;
+    }, 0);
   }
 
   return (
@@ -273,12 +285,16 @@ const Checkout: React.FC = () => {
             <div className="border-b-2 mt-6">
               <div className="mt-8 flex items-center justify-between">
                 <h2 className="text-lg font-bold text-gray-800">Subtotal</h2>
-                <span className="text-lg font-bold text-gray-800">$20.99</span>
+                <span className="text-lg font-bold text-gray-800">
+                  ${calculateTotalAmount(currentUser?.cart ?? [])}
+                </span>
               </div>
 
               <div className="mt-4 flex items-center justify-between pb-6">
                 <h2 className="text-lg font-bold text-gray-800">Total</h2>
-                <span className="text-lg font-bold text-gray-800">$23.98</span>
+                <span className="text-lg font-bold text-gray-800">
+                  ${calculateTotalAmount(currentUser?.cart ?? [])}
+                </span>
               </div>
             </div>
 

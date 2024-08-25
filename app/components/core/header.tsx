@@ -14,7 +14,7 @@ function Header() {
   const currentUser = useContext(CurrentUserContext)?.currentUser;
 
   return (
-    <div className="px-4 md:px-8 h-[60px] flex items-center justify-between">
+    <div className="relative px-4 md:px-8 h-[60px] flex items-center justify-between">
       <BasicModal open={openSighup} setOpen={setOpenSighup}>
         <SighupForm setSighup={setOpenSighup} setLogin={setOpenLogin} />
       </BasicModal>
@@ -22,11 +22,11 @@ function Header() {
         <LoginForm setSighup={setOpenSighup} setLogin={setOpenLogin} />
       </BasicModal>
 
-      <div className="w-[50%] md:w-[20%] cursor-pointer">
+      <div className="w-[50%] md:w-[20%] cursor-pointer absolute">
         <Logo />
       </div>
 
-      <div className="hidden md:flex items-center justify-center w-[60%] gap-7 font-medium text-lg">
+      {/* <div className="hidden md:flex items-center justify-center w-[60%] gap-7 font-medium text-lg">
         <p className="cursor-pointer hover:text-[19px] min-w-[120px] transition-all duration-150">
           Houses
         </p>
@@ -39,7 +39,7 @@ function Header() {
         <p className="cursor-pointer hover:text-[19px] min-w-[120px] transition-all duration-150">
           Contact
         </p>
-      </div>
+      </div> */}
 
       <div className="w-[50%] md:w-[20%] flex items-end justify-end gap-2">
         {currentUser ? (

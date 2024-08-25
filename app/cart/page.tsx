@@ -4,8 +4,10 @@ import { CurrentUserContext } from "../components/context";
 import { ToastContainer } from "react-toastify";
 import { Header, Footer, CartCard, Button } from "../components/core";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 function Page() {
   const { currentUser } = useContext(CurrentUserContext) || {};
+  const router = useRouter();
 
   return (
     <div className=" min-h-screen w-full bg-white">
@@ -38,7 +40,10 @@ function Page() {
               <CartCard key={key} className="w-full" properties={item} />
             ))}
             <div className=" w-full flex items-center justify-center py-4">
-              <Button className=" w-[30%] h-[50px] min-w-[200px] rounded-lg">
+              <Button
+                onClick={() => router.push("/payment")}
+                className=" w-[30%] h-[50px] min-w-[200px] rounded-lg"
+              >
                 Purchase All
               </Button>
             </div>

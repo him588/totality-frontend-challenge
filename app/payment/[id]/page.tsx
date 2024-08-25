@@ -1,12 +1,106 @@
 "use client";
-import Image from "next/image";
 import React, { useState } from "react";
+import { Properties } from "@/data";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Ensure this is imported
+import { useRouter } from "next/navigation";
+interface CheckoutProps {
+  params: { id: string };
+}
 
-const Checkout: React.FC = () => {
+function Page({ params }: CheckoutProps) {
+  const { id } = params;
+  const propertieDetails = Properties.find((propertie) => propertie.id === id);
   const [paymentMethod, setPaymentMethod] = useState<string>("card");
+  const router = useRouter();
+  const usersString = localStorage.getItem("users");
+  const [billingDetails, setBillingDetails] = useState({
+    name: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    code: "",
+  });
+  const [cardDetails, setCardDetails] = useState({
+    name: "",
+    number: "",
+    exp: "",
+    cvv: "",
+  });
+
+  function handleAddressChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setBillingDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function handleCardDetailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setCardDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function validateForm(): boolean {
+    let valid = true;
+
+    // Validate billing details
+    for (const [key, value] of Object.entries(billingDetails)) {
+      if (!value) {
+        toast.error(`Billing detail "${key}" is required`, {
+          position: "top-center",
+        });
+        valid = false;
+      }
+    }
+
+    // Validate card details
+    if (!cardDetails.name) {
+      toast.error("Cardholder's name is required", { position: "top-center" });
+      valid = false;
+    }
+    if (!cardDetails.number) {
+      toast.error("Card number is required", { position: "top-center" });
+      valid = false;
+    }
+    if (!cardDetails.exp) {
+      toast.error("Expiration date is required", { position: "top-center" });
+      valid = false;
+    }
+    if (!cardDetails.cvv) {
+      toast.error("CVV is required", { position: "top-center" });
+      valid = false;
+    }
+
+    // Basic card number validation
+    if (cardDetails.number && !/^\d{16}$/.test(cardDetails.number)) {
+      toast.error("Card number must be 16 digits", { position: "top-center" });
+      valid = false;
+    }
+
+    // Basic expiration date validation
+    if (cardDetails.exp && !/^\d{2}\/\d{2}$/.test(cardDetails.exp)) {
+      toast.error("Expiration date must be in MM/YY format", {
+        position: "top-center",
+      });
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (validateForm()) {
+      toast.success("Order placed successfully!", { position: "top-center" });
+      router.push("/success");
+    }
+  }
+  // function calculateTotalAmount(cart: cartProperties[]) {
+  //   return cart.reduce((total, property) => {
+  //     return total + property.price * property.quantity;
+  //   }, 0);
+  // }
 
   return (
     <div className=" bg-white">
+      <ToastContainer />
       <div className="max-lg:max-w-xl mx-auto w-full">
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 max-lg:order-1 p-6 !pr-0 max-w-4xl mx-auto w-full">
@@ -25,20 +119,29 @@ const Checkout: React.FC = () => {
                 <div className="grid sm:grid-cols-2 gap-8 mt-8">
                   <div>
                     <input
+                      onChange={handleAddressChange}
                       type="text"
+                      name="name"
+                      value={billingDetails.name}
                       placeholder="Name"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
                     />
                   </div>
                   <div>
                     <input
+                      onChange={handleAddressChange}
+                      value={billingDetails.email}
                       type="email"
+                      name="email"
                       placeholder="Email address"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
                     />
                   </div>
                   <div>
                     <input
+                      onChange={handleAddressChange}
+                      name="address"
+                      value={billingDetails.address}
                       type="text"
                       placeholder="Street address"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
@@ -46,6 +149,9 @@ const Checkout: React.FC = () => {
                   </div>
                   <div>
                     <input
+                      onChange={handleAddressChange}
+                      name="city"
+                      value={billingDetails.city}
                       type="text"
                       placeholder="City"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
@@ -53,6 +159,9 @@ const Checkout: React.FC = () => {
                   </div>
                   <div>
                     <input
+                      onChange={handleAddressChange}
+                      name="state"
+                      value={billingDetails.state}
                       type="text"
                       placeholder="State"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
@@ -60,6 +169,9 @@ const Checkout: React.FC = () => {
                   </div>
                   <div>
                     <input
+                      onChange={handleAddressChange}
+                      value={billingDetails.code}
+                      name="code"
                       type="number"
                       placeholder="Postal code"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
@@ -68,74 +180,13 @@ const Checkout: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-16">
-                <h2 className="text-xl font-bold text-gray-800">
-                  Payment method
-                </h2>
-
-                <div className="grid gap-4 sm:grid-cols-2 mt-4">
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      className="w-5 h-5 cursor-pointer"
-                      id="card"
-                      checked={paymentMethod === "card"}
-                      onChange={() => setPaymentMethod("card")}
-                    />
-                    <label
-                      htmlFor="card"
-                      className="ml-4 flex gap-2 cursor-pointer"
-                    >
-                      <Image
-                        src="https://readymadeui.com/images/visa.webp"
-                        width={100}
-                        height={100}
-                        className="w-12"
-                        alt="Visa"
-                      />
-                      <Image
-                        src="https://readymadeui.com/images/american-express.webp"
-                        width={100}
-                        height={100}
-                        className="w-12"
-                        alt="American Express"
-                      />
-                      <Image
-                        src="https://readymadeui.com/images/master.webp"
-                        width={100}
-                        height={100}
-                        className="w-12"
-                        alt="MasterCard"
-                      />
-                    </label>
-                  </div>
-
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      className="w-5 h-5 cursor-pointer"
-                      id="paypal"
-                      checked={paymentMethod === "paypal"}
-                      onChange={() => setPaymentMethod("paypal")}
-                    />
-                    <label
-                      htmlFor="paypal"
-                      className="ml-4 flex gap-2 cursor-pointer"
-                    >
-                      <Image
-                        src="https://readymadeui.com/images/paypal.webp"
-                        width={100}
-                        height={100}
-                        className="w-20"
-                        alt="PayPal"
-                      />
-                    </label>
-                  </div>
-                </div>
-
+              <div className="mt-8">
                 <div className="grid gap-8 mt-8">
                   <div>
                     <input
+                      onChange={handleCardDetailChange}
+                      value={cardDetails.name}
+                      name="name"
                       type="text"
                       placeholder="Cardholder's Name"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
@@ -160,6 +211,9 @@ const Checkout: React.FC = () => {
                       />
                     </svg>
                     <input
+                      onChange={handleCardDetailChange}
+                      value={cardDetails.number}
+                      name="number"
                       type="number"
                       placeholder="Card Number"
                       className="px-2 pb-2 bg-white text-gray-800 w-full text-sm outline-none"
@@ -169,40 +223,34 @@ const Checkout: React.FC = () => {
                   <div className="grid grid-cols-2 gap-6">
                     <div>
                       <input
-                        type="number"
+                        onChange={handleCardDetailChange}
+                        value={cardDetails.exp}
+                        name="exp"
+                        type="text"
                         placeholder="EXP."
                         className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
                       />
                     </div>
                     <div>
                       <input
+                        onChange={handleCardDetailChange}
+                        value={cardDetails.cvv}
+                        name="cvv"
                         type="number"
                         placeholder="CVV"
                         className="px-2 pb-2 bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none"
                       />
                     </div>
                   </div>
-
-                  <div className="flex items-center">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    />
-                    <label
-                      htmlFor="remember-me"
-                      className="ml-2 block text-sm text-gray-900 cursor-pointer"
-                    >
-                      Save this information for next time
-                    </label>
-                  </div>
                 </div>
               </div>
             </form>
 
             <div className="mt-6 lg:mt-16">
-              <button className="block w-full max-w-lg mx-auto text-center rounded-full bg-gray-900 text-white text-lg font-bold p-2">
+              <button
+                onClick={handleSubmit}
+                className="block w-full max-w-lg mx-auto text-center rounded-full bg-gray-900 text-white text-lg font-bold p-2"
+              >
                 Place Order
               </button>
             </div>
@@ -218,27 +266,18 @@ const Checkout: React.FC = () => {
             <div className="border-b-2 mt-6">
               <div className="mt-8 flex items-center justify-between">
                 <h2 className="text-lg font-bold text-gray-800">Subtotal</h2>
-                <span className="text-lg font-bold text-gray-800">$20.99</span>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between">
-                <h2 className="text-lg font-bold text-gray-800">Shipping</h2>
-                <span className="text-lg font-bold text-gray-800">$4.99</span>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between">
-                <h2 className="text-lg font-bold text-gray-800">Tax</h2>
-                <span className="text-lg font-bold text-gray-800">$1.99</span>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between">
-                <h2 className="text-lg font-bold text-gray-800">Discount</h2>
-                <span className="text-lg font-bold text-red-600">-$3.99</span>
+                <span className="text-lg font-bold text-gray-800">
+                  ${propertieDetails && propertieDetails.price}
+                  {/* ${calculateTotalAmount(currentUser?.cart ?? [])} */}
+                </span>
               </div>
 
               <div className="mt-4 flex items-center justify-between pb-6">
                 <h2 className="text-lg font-bold text-gray-800">Total</h2>
-                <span className="text-lg font-bold text-gray-800">$23.98</span>
+                <span className="text-lg font-bold text-gray-800">
+                  ${propertieDetails && propertieDetails.price}
+                  {/* ${calculateTotalAmount(currentUser?.cart ?? [])} */}
+                </span>
               </div>
             </div>
 
@@ -257,6 +296,6 @@ const Checkout: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Checkout;
+export default Page;

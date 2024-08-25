@@ -7,6 +7,7 @@ import { CartIcon } from "../icons";
 import { CurrentUserContext } from "../context";
 import { cartProperties, properties, user } from "@/types";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 function Card({
   className,
@@ -16,7 +17,7 @@ function Card({
   properties: properties;
 }) {
   const { currentUser, setcurrentUser } = useContext(CurrentUserContext) || {};
-
+  const router = useRouter();
   const usersString = localStorage.getItem("users");
   const [users, setUsers] = useState<user[]>(
     usersString ? JSON.parse(usersString) : []
@@ -84,7 +85,10 @@ function Card({
       </div>
       <p>{properties.description}</p>
       <div className=" flex gap-2">
-        <Button className=" mt-4 w-full rounded-xl h-[50px] text-lg">
+        <Button
+          onClick={() => router.push(`/payment/${properties.id}`)}
+          className=" mt-4 w-full rounded-xl h-[50px] text-lg"
+        >
           Book Now
         </Button>
         {/* <Button className=" mt-4 w-1/4 rounded-xl h-[50px] text-lg hover:bg-opacity-85 transition-all duration-200">

@@ -1,9 +1,12 @@
+import Link from "next/link";
 import React from "react";
 
 function Logo() {
   return (
     <div>
-      <p className=" text-4xl font-semibold ">Estatify</p>
+      <Link href={"/"}>
+        <p className=" text-4xl font-semibold ">Estatify</p>
+      </Link>
     </div>
   );
 }
