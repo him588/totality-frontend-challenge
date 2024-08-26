@@ -69,7 +69,9 @@ function Card({
         className=" h-[300px] w-full rounded-2xl"
       />
       <div className=" py-2 px-4">
-        <p className=" text-2xl font-semibold">${properties.price}</p>
+        <p className=" text-2xl font-semibold text-black">
+          ${properties.price}
+        </p>
         <div className=" flex gap-4 text-[grey] text-base">
           <p>{properties && properties.bedroom} beds</p>
           <p>3 baths</p>

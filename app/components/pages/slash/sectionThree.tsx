@@ -10,7 +10,9 @@ function SectionThree() {
   return (
     <div className="flex flex-col gap-3 px-4 py-4">
       <div className="flex items-center justify-between flex-wrap gap-3">
-        <p className="text-3xl   font-semibold">You might also like</p>
+        <p className="text-3xl text-black   font-semibold">
+          You might also like
+        </p>
         <Button
           size="small"
           onClick={() => router.push("/properties")}

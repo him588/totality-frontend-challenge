@@ -62,17 +62,17 @@ function LoginForm({ setSighup, setLogin }: prop) {
         <p className=" text-center font-semibold text-3xl">Login</p>
 
         <div className=" w-full">
-          <p className=" text-xl">Email</p>
+          <p className=" text-xl text-black">Email</p>
           <input
             type="text"
             name="email"
             placeholder="Ex-hk93931212@gmail.com"
-            className=" rounded-lg border-[2px] border-solid border-gray-400 w-full h-[50px] px-2 text-lg"
+            className=" rounded-lg border-[2px] text-black border-solid border-gray-400 w-full h-[50px] px-2 text-lg"
             value={formDetail.email}
             onChange={handleChange}
           />
         </div>
-        <div className="w-full">
+        <div className="w-full text-black">
           <p className=" text-xl">Password</p>
           <input
             type="text"
@@ -88,7 +88,7 @@ function LoginForm({ setSighup, setLogin }: prop) {
         </Button>
       </div>
       <div className=" h-[1.4px] w-full bg-slate-500 mt-3 rounded-xl opacity-40"></div>
-      <p className=" text-center mt-3">
+      <p className=" text-center text-black mt-3">
         Dont have any account ?
         <span
           onClick={() => {

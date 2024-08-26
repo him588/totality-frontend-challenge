@@ -6,7 +6,7 @@ function AgentCard() {
   return (
     <div>
       <div className=" relative flex justify-between items-center">
-        <p className=" ">
+        <p className=" text-black ">
           201 Prague Dr, <span className=" block">San Jose, CA 95119</span>
         </p>
         <div className=" -mt-3">
@@ -14,21 +14,21 @@ function AgentCard() {
         </div>
       </div>
       <div className=" flex items-center justify-between mt-6">
-        <div className=" flex flex-col gap-1">
+        <div className=" flex flex-col gap-1 text-black">
           <p className="  font-semibold text-2xl">4</p>
           <p className=" text-lg">Room</p>
         </div>
-        <div className=" flex flex-col gap-1">
+        <div className=" flex flex-col gap-1 text-black">
           <p className="  font-semibold text-2xl">3</p>
           <p className=" text-lg">baths</p>
         </div>
-        <div className=" flex flex-col gap-1">
+        <div className=" flex flex-col gap-1 text-black">
           <p className="  font-semibold text-2xl">1,868</p>
           <p className=" text-lg">sqft</p>
         </div>
       </div>
       <div>
-        <p className=" font-bold mt-4 text-3xl">
+        <p className=" font-bold mt-4 text-3xl text-black">
           $1,650{" "}
           <span className=" font-medium text-gray-400 text-lg">/night</span>
         </p>
@@ -47,13 +47,13 @@ function AgentCard() {
               unoptimized
             />
           </div>
-          <p className=" text-lg ">
+          <p className=" text-lg text-black">
             Amella <span className=" block">Stephension</span>
           </p>
         </div>
         <div className="">
           <Button
-            className=" bg-transparent text-black border-[2px] border-solid border-black  py-1 px-4"
+            className=" bg-transparent text-black border-[2px] border-solid  border-black  py-1 px-4"
             size="large"
           >
             Contact

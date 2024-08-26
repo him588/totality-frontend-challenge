@@ -22,11 +22,11 @@ function Header() {
         <LoginForm setSighup={setOpenSighup} setLogin={setOpenLogin} />
       </BasicModal>
 
-      <div className="w-[50%] md:w-[20%] cursor-pointer absolute">
+      <div className=" cursor-pointer absolute">
         <Logo />
       </div>
 
-      <div className="w-[50%] md:w-[20%] flex items-end justify-end gap-2">
+      <div className="flex items-end justify-end gap-2">
         {currentUser ? (
           <Sidebar />
         ) : (
@@ -39,7 +39,7 @@ function Header() {
             </Button>
             <Button
               onClick={() => setOpenSighup(true)}
-              className="w-[100px] text-sm md:w-[100px]"
+              className="w-[100px] text-sm md:w-[100px] text-nowrap"
             >
               Sign up
             </Button>

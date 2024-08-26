@@ -10,12 +10,12 @@ function SectionTwo() {
   return (
     <div className="flex flex-col gap-3 px-4 py-4 ">
       <div className="flex items-center justify-between flex-wrap gap-3">
-        <p className="text-3xl font-semibold ">Latest in our area</p>
+        <p className="text-3xl text-black font-semibold ">Latest in our area</p>
 
         <Button
           size="small"
           onClick={() => router.push("/properties")}
-          className="px-3 border-2 bg-transparent border-solid border-black text-black font-semibold text-sm sm:text-base"
+          className="px-2 border-2 bg-transparent border-solid border-black text-black font-semibold text-sm "
         >
           View all {">"}
         </Button>

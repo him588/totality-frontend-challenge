@@ -75,7 +75,7 @@ function Searchform({
       </div>
       <div className=" mt-2">
         <p className="text-lg text-[#252525] pl-1">Price</p>
-        <p className=" text-2xl">
+        <p className=" text-2xl text-black">
           ${minValue}-${maxValue}
         </p>
         <RangeSlider value={value} setValue={setValue} />
@@ -85,7 +85,7 @@ function Searchform({
         <div className=" w-full h-[50px] bg-[#eff0f4] rounded-full mt-1 p-1 flex">
           <div
             onClick={() => setHouseType("house")}
-            className={`cursor-pointer flex items-center justify-center w-[33%] h-full text-base  rounded-full transition-all duration-150 ${
+            className={`cursor-pointer text-black flex items-center justify-center w-[33%] h-full text-base  rounded-full transition-all duration-150 ${
               houseType === "house" ? "bg-white" : "bg-transparent"
             }`}
           >
@@ -93,7 +93,7 @@ function Searchform({
           </div>
           <div
             onClick={() => setHouseType("commercial")}
-            className={`cursor-pointer flex items-center justify-center w-[33%] h-full text-base  rounded-full transition-all duration-150 ${
+            className={`cursor-pointer text-black flex items-center justify-center w-[33%] h-full text-base  rounded-full transition-all duration-150 ${
               houseType === "commercial" ? "bg-white" : "bg-transparent"
             }`}
           >
@@ -101,7 +101,7 @@ function Searchform({
           </div>
           <div
             onClick={() => setHouseType("for rent")}
-            className={`cursor-pointer flex items-center justify-center w-[33%] h-full text-base  rounded-full transition-all duration-150 ${
+            className={`cursor-pointer text-black flex items-center justify-center w-[33%] h-full text-base  rounded-full transition-all duration-150 ${
               houseType === "for rent" ? "bg-white" : "bg-transparent"
             }`}
           >
